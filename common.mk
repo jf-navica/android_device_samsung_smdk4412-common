@@ -16,7 +16,7 @@
 
 COMMON_PATH := device/samsung/smdk4412-common
 
-DEVICE_PACKAGE_OVERLAYS := $(COMMON_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -68,25 +68,31 @@ PRODUCT_PACKAGES := \
     audio.r_submix.default \
     audio.usb.default \
     com.android.future.usb.accessory \
-    dhcpcd.conf \
     gralloc.exynos4 \
-    hostapd \
-    hostapd_default.conf \
     hwcomposer.exynos4 \
     libfimg \
-    libnetcmdiface \
     libsecion \
     libsync \
-    libwpa_client \
+    libUMP \
     lights.exynos4 \
-    macloader \
-    tinymix \
-    wpa_supplicant
+    tinymix
+
 
 ifneq ($(TARGET_HAS_CAM_FLASH) ,false)
 PRODUCT_PACKAGES += \
     Torch
 endif
+
+# Wifi    
+PRODUCT_PACKAGES += \
+    hostapd \
+    hostapd_default.conf \
+    libnetcmdiface \
+    libwpa_client \
+    macloader \
+    dhcpcd.conf \
+    wpa_supplicant
+
 
 # MFC API
 PRODUCT_PACKAGES += \
@@ -110,7 +116,8 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
     
 # Filesystem management tools
 PRODUCT_PACKAGES += \
