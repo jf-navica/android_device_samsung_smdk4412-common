@@ -92,6 +92,9 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
 
 # MFC API
 PRODUCT_PACKAGES += \
