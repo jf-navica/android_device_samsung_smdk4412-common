@@ -70,7 +70,9 @@ on post-fs-data
     chmod 0664 /sys/class/sec/gps/GPS_nRST/value
     mkdir /data/gps 771 system system
     chown system system /data/gps
-
+    mkdir /data/system/gps 771 system system
+    chown system system /data/system/gps
+    
     mkdir /data/misc/radio 0775 radio system
     chmod 0775 /data/misc/radio
     mkdir /efs/imei 0775 radio system
@@ -438,12 +440,9 @@ on boot
 
 # serial keyboard daemon
 service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
-	class late_start
-	disabled
+	class late_start	
 	group system
 
-on property:ro.uart_debug=0
-	start sec_keyboard
 
 # create virtual SD card at /mnt/sdcard, based on the /data/media directory
 # daemon will drop to user/group system/media_rw after initializing
