@@ -68,14 +68,14 @@ PRODUCT_PACKAGES := \
     audio.usb.default \
     com.android.future.usb.accessory \
     gralloc.exynos4 \
-    hwcomposer.exynos4 \
+    libExynosHWCService \
+    libExynosIPService \
     libfimg \
     libsecion \
     libsync \
     libUMP \
     lights.exynos4 \
     tinymix
-
 
 ifneq ($(TARGET_HAS_CAM_FLASH) ,false)
 PRODUCT_PACKAGES += \
@@ -171,9 +171,7 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=1 \
-    ro.opengles.version=131072 \
-    ro.bq.gpu_to_cpu_unsupported=1 \
-    debug.hwui.render_dirty_regions=false
+    ro.opengles.version=131072
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
