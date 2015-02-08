@@ -75,7 +75,8 @@ PRODUCT_PACKAGES := \
     libsync \
     libUMP \
     lights.exynos4 \
-    tinymix
+    tinymix \
+    sec_keyboard
 
 ifneq ($(TARGET_HAS_CAM_FLASH) ,false)
 PRODUCT_PACKAGES += \
