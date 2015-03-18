@@ -166,5 +166,8 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.exynos4
 
+# Show Battery Percentage in LPM mode
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+
 # inherit from the proprietary version
 -include vendor/samsung/smdk4412-common/BoardConfigVendor.mk
