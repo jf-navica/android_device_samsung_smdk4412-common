@@ -444,6 +444,7 @@ on boot
 service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
 	class late_start	
 	group system
+	seclabel u:r:sec_keyboard:s0
 
 
 # create virtual SD card at /mnt/sdcard, based on the /data/media directory
