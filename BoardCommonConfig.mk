@@ -115,9 +115,6 @@ BOARD_USE_CSC_FIMC := false
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# Logging
-TARGET_USES_LOGD := false
-
 # RIL
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 
