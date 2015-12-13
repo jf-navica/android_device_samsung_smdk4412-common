@@ -144,10 +144,14 @@ on post-fs-data
     chown system media_rw /sys/class/mdnie/mdnie/outdoor
     chown system media_rw /sys/class/mdnie/mdnie/scenario
     chown system system /sys/class/mdnie/mdnie/negative
+    chown system system /sys/class/mdnie/mdnie/cabc
+    chown system system /sys/class/mdnie/mdnie/rgb
     write /sys/class/mdnie/mdnie/scenario 0
     write /sys/class/mdnie/mdnie/mode 0
     restorecon /sys/class/mdnie/mdnie/scenario
     restorecon /sys/class/mdnie/mdnie/mode
+    restorecon /sys/class/mdnie/mdnie/cabc
+    restorecon /sys/class/mdnie/mdnie/rgb
 
 # Permissions for System Server and daemons.
     chown radio system /sys/android_power/state
@@ -306,7 +310,7 @@ on post-fs-data
     chown system radio /sys/class/input/input9/poll_delay
 # Accelerometer_sensor
     chown system radio /dev/accelerometer
-    chown system radio /sys/class/sensors/accelerometer_sensor
+#    chown system radio /sys/class/sensors/accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
     chown system radio /sys/class/sensors/accelerometer_sensor/calibration
     chown system radio /sys/class/sensors/accelerometer_sensor/reactive_alert
