@@ -1,0 +1,5 @@
+type sec_keyboard, domain;
+type sec_keyboard_exec, exec_type, file_type;
+init_daemon_domain(sec_keyboard);
+
+domain_trans(init, rootfs, sec_keyboard)

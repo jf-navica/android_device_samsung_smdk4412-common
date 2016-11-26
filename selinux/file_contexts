@@ -1,0 +1,2 @@
+/system/bin/macloader                   u:object_r:macloader_exec:s0
+/system/bin/sec_keyboard                u:object_r:sec_keyboard_exec:s0
