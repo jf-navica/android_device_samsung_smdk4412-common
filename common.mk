@@ -73,7 +73,8 @@ PRODUCT_PACKAGES := \
     libUMP \
     lights.exynos4 \
     tinymix \
-    sec_keyboard
+    sec_keyboard \
+    libhdmiclient
 
 ifneq ($(TARGET_HAS_CAM_FLASH) ,false)
 PRODUCT_PACKAGES += \
