@@ -27,9 +27,6 @@ on charger
     write /sys/devices/platform/s5p-ehci/power/control auto   
 
 on post-fs-data
-# macloader
-    write /data/.cid.info 0
-    restorecon /data/.cid.info
     
 # data/log
     mkdir /data/log 0775 system log
@@ -455,12 +452,10 @@ on boot
 service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
 	class late_start	
 	group system
-	seclabel u:r:sec_keyboard:s0
 
 service charger /sbin/healthd -c
     class charger
     critical
-    seclabel u:r:healthd:s0
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -493,9 +488,12 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 
 service macloader /system/bin/macloader
-    class main
+    class late_start
     oneshot
 
+on property:wlan.driver.status=ok
+    start macloader
+    
 # Workaround for broken incall audio
 service bootsnd /system/bin/tinyplay /system/etc/sound/silence.wav -D 0 -d 0 -p 880
     class late_start
